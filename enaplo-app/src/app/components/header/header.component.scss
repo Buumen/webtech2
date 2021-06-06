@@ -1,0 +1,62 @@
+$primary: #1b3644;
+$secondary: #7cc9cc;
+$font-size: 2em;
+$padding-top: 25px;
+$padding-vertical: 25px;
+$tr: all 0.3s ease;
+
+:host {
+    position: relative;
+    z-index: 10;
+    color: $secondary;
+  }
+
+.home-button {
+    background-color: $primary;
+    color: $secondary;
+    font-size: $font-size;
+    border: none;
+    cursor: pointer;
+    transition: $tr;
+    padding: $padding-top $padding-vertical;
+
+    &:hover {
+        background-color: $secondary;
+        color: $primary;
+    }
+}
+
+.toolbar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $primary;
+    position: relative;
+
+    .right {
+        margin-left: auto;
+        float: right;
+    }
+}
+
+.log-button {
+    background-color: $primary;
+    color: $secondary;
+    font-size: $font-size;
+    border: none;
+    cursor: pointer;
+    transition: $tr;
+    padding: $padding-top $padding-vertical;
+
+    &:hover {
+        background-color: $secondary;
+        color: $primary;
+    }
+}
+
+span {
+    font-size: 3em;
+    padding: $padding-top - 6 $padding-vertical;
+    cursor: pointer;
+}
+

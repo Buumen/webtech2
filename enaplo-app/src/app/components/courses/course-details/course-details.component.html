@@ -1,0 +1,56 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="hasSignedId()">
+        <h2>Tantárgy</h2>
+        <div class="container">
+            <table class="table table-bordered" *ngIf="course">
+                <tbody>
+                    <tr>
+                        <td>Cím</td>
+                        <td>{{course.title}}</td>
+                    </tr>
+                    <tr>
+                        <td>Év</td>
+                        <td>{{course.year}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanár</td>
+                        <td>{{course.teacher.teacher.fullName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Telefonszám</td>
+                        <td>{{course.teacher.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>E-mail</td>
+                        <td>{{course.teacher.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Vizsgaszint</h3>
+            <table class="table table-bordered" *ngIf="preference">
+                <tbody>
+                    <tr>
+                        <td>Teszt</td>
+                        <td>{{preference.testWeight}}</td>
+                    </tr>
+                    <tr>
+                        <td>Téma teszt</td>
+                        <td>{{preference.topicTestWeight}}</td>
+                    </tr>
+                    <tr>
+                        <td>Ismétlés</td>
+                        <td>{{preference.repetitionWeight}}</td>
+                    </tr>
+                    <tr>
+                        <td>Házi feladat</td>
+                        <td>{{preference.homeworkWeight}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button (click)="goBack()" class="btn btn-dark">Vissza</button>
+        </div>
+    </div>
+</div>
+
+

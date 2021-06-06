@@ -1,0 +1,39 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="hasSignedIn()">
+        <div class="container">
+            <h2>Órarend</h2>
+        </div>    
+        <div class="container">
+            <table class="table table-sm">
+                <thead class="thead-dark">
+                  <th>#</th>
+                  <th>Hétfő</th>
+                  <th>Kedd</th>
+                  <th>Szerda</th>
+                  <th>Csütörtök</th>
+                  <th>Péntek</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of timetable; index as counter">
+                    <td><b>{{counter + 1}}</b></td>
+                    <td *ngFor="let entity of row">
+                        <div *ngIf="!!entity" >
+                            <table class="table-sm">
+                                <tr>
+                                    <td>Tantárgy:</td>
+                                    <td><b>{{entity.course.title}}</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Osztályterem:</td>
+                                    <td><b>{{entity.room.classroomNumber}}</b></td>
+                                </tr>
+                            </table>
+                        </div> 
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

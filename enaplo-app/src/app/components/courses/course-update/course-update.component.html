@@ -1,0 +1,28 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <h2>Módosítás</h2>
+        </div>
+        <div class="container">
+            <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-course">
+                <div class="form-group">
+                    <label for="title">Cím</label>
+                    <input type="text" class="form-control" id="title" required [(ngModel)]="response.title" name="title" value="{{course.title}}" placeholder="{{course.title}}">
+                </div>
+                <div class="form-group">
+                    <label for="year">Év</label>
+                    <input type="number" class="form-control" id="year" required [(ngModel)]="response.year" name="year"  value="{{course.year}}" placeholder="{{course.year}}">
+                </div>
+                <div class="form-group">
+                    <label for="teacher">Tanár</label>
+                   <select name="teacher" class="form-control form-control-sm" [(ngModel)]="selectedOption">
+                        <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{teacher.teacher.fullName}}</option>
+                   </select>
+                </div>
+                <button type="submit" (click)="goBack()" class="btn btn-dark">Vissza</button>
+                <button type="submit" class="btn btn-success">Módosítás</button>
+            </form>
+        </div>
+    </div>
+</div>

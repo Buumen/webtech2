@@ -1,0 +1,21 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-title><h3 class="login-h3">{{title}}</h3></mat-card-title>
+        <mat-card-content>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="!submitted" [formGroup]="form">
+                <p *ngIf="notification" class="notification">{{notification.msgBody}}</p>      
+                <table class="table table-bordered non-border-login">
+                    <tr>
+                        <td><label class="label-login">Felhasználónév: </label></td>
+                        <td><input type="text" id="username" formControlName="username" class="form-control" placeholder="Felhasználónév" required autofocus /></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-login">Jelszó: </label></td>
+                        <td><input type="password" id="password" formControlName="password" class="form-control" placeholder="Jelszó" required autofocus /></td>
+                    </tr>
+                </table>
+                <button [disabled]="!loginForm.form.valid" class="submit-login" type="submit">Belépés</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

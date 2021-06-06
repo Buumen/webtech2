@@ -1,0 +1,35 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <h2>Létrehozás</h2>
+        </div>  
+        <button  mat-button mat-ripple (click)='goBack()' class="btn btn-warning">Vissza</button>
+        <div class="container">
+            <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-timetable">            
+                <div class="form-group">
+                    <label for="classroom">Osztály</label>
+                   <select name="classroom" class="form-control form-control-sm" [(ngModel)]="selectedOptionClassroom">
+                        <option *ngFor="let classroom of classrooms" [ngValue]="classroom">{{classroom.year}}/{{classroom.letter}}</option>
+                   </select>
+                </div>
+                <div class="form-group">
+                    <label for="day">Nap</label>
+                    <input type="number" class="form-control" id="day" required [(ngModel)]="timeTableEntity.day" name="day">
+                </div>
+                <div class="form-group">
+                    <label for="lessonNumber">Lecke száma</label>
+                    <input type="number" class="form-control" id="lessonNumber" required [(ngModel)]="timeTableEntity.lessonNumber" name="lessonNumber">
+                </div>
+                <div class="form-group">
+                    <label for="room">Osztályterem</label>
+                   <select name="room" class="form-control form-control-sm" [(ngModel)]="selectedOptionRoom">
+                        <option *ngFor="let room of rooms" [ngValue]="room">{{room.classroomBumber}}</option>
+                   </select>
+                </div>
+                <button type="submit" (click)="goBack()" class="btn btn-dark">Vissza</button>
+                <button type="submit" class="btn btn-success">Beküldés</button>
+            </form>
+        </div>
+    </div>
+</div>

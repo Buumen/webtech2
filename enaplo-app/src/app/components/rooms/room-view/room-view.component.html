@@ -1,0 +1,31 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <div class="container">
+                <h3>Osztályterem</h3>
+                <button (click)='createRoom()' class="btn btn-info">Osztályterem létrehozása</button>
+            </div>
+            <div class="container">
+                <input class="form-control-searchbox" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" 
+                placeholder="&#171; Keresés">
+                <table  class="table table-striped table-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Terem száma</th>
+                            <th>Funkció</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let room of rooms | filter:searchText">
+                            <td><strong>{{room.classroomNumber}}</strong></td>
+                            <td>    
+                                <button (click)="delete(room.id)" class="btn btn-danger">Törlés</button>                 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

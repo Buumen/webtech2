@@ -1,0 +1,39 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <div class="container">
+                <h3>Felhasználók</h3>
+                <button  mat-button mat-ripple (click)='createStudent()' class="btn btn-primary">Új tanuló felvitele</button>
+                <button  mat-button mat-ripple (click)='createTeacher()' class="btn btn-success">Új tanár felvitele</button>
+            </div>
+            <div class="container">
+                <input class="form-control-searchbox" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" 
+                placeholder="&#171; Keresés">
+                <table  class="table table-striped table-sm table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Felhasználónév</th>
+                            <th>Teljes név</th>
+                            <th>Funkciók</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users | filter:searchText">
+                            <td>{{user.username}}</td>
+                            <td>{{user.fullName}}</td>
+                            <td>                 
+                                <button (click)="details(user.id)" class="btn btn-info">Megnéz</button>
+                                <button (click)="update(user.id)" class="btn btn-warning">Módosítás</button>
+                                <button *ngIf="user.id != currentUser.id" (click)="delete(user.id)" class="btn btn-danger">Törlés</button>
+                                <button *ngIf="user.authorities[0].authority + '' === 'ROLE_STUDENT'" (click)="setCourse(user.id)" class="btn btn-success">Tantárgy hozzáadás</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

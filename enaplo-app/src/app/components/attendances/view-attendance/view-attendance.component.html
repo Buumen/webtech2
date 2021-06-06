@@ -1,0 +1,37 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <div class="container">
+                <h3>Hiányzások</h3>
+                <button (click)="goBack()" *ngIf="currentUser.authorities[0].authority + '' != 'ROLE_STUDENT'" class="btn btn-dark">Vissza</button>
+            </div>
+            <div class="container">
+                <input class="form-control-searchbox" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" 
+                placeholder="&#171; Keresés">
+                <table  class="table table-bordered table-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Hiányzás dátuma</th>
+                            <th>Tanóra</th>
+                            <th>Igazolt</th>
+                            <th *ngIf="currentUser.authorities[0].authority + '' != 'ROLE_STUDENT'">Funkciók</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let attendance of attendances | filter:searchText">
+                            <td *ngIf="attendance.verified" class="green"><b>{{attendance.dateOfMiss}}</b></td>
+                            <td *ngIf="attendance.verified" class="green"><b>{{attendance.lecture}}</b></td>
+                            <td *ngIf="attendance.verified" class="green"><b>{{attendance.verified}}</b></td>
+                            <td *ngIf="!attendance.verified" class="red"><b>{{attendance.dateOfMiss}}</b></td>
+                            <td *ngIf="!attendance.verified" class="red"><b>{{attendance.lecture}}</b></td>
+                            <td *ngIf="!attendance.verified" class="red"><b>{{attendance.verified}}</b></td>
+                            <td *ngIf="currentUser.authorities[0].authority + '' != 'ROLE_STUDENT'"><button (click)="delete(attendance.id)" class="btn btn-warning">Delete</button></td>                   
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

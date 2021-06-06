@@ -1,0 +1,16 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole() === 'ROLE_ADMIN'"> 
+        <h2>Üzenet</h2>
+        <div class="container">
+            <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-message">           
+                <div class="form-group">
+                    <label for="text">Szöveg helye</label>
+                    <textarea class="form-control" id="text" required [(ngModel)]="message.text" name="text" rows="3"></textarea>
+                  </div>
+                <button type="submit" (click)="goBack()" class="btn btn-dark">Vissza</button>
+                <button type="submit" class="btn btn-success">Beküldés</button>
+            </form>
+        </div>
+    </div>
+</div>

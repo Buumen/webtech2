@@ -1,0 +1,77 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <h2>Létrehozás</h2>
+        </div>
+        <div class="container">
+        <form (ngSubmit)="onUserSubmit()" #form="ngForm" class="form">
+            <div class="form-group">
+                <label for="username">Felhasználónév</label>
+                <input [disabled]="userSubmitted" type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username" placeholder="Felhasználónév">
+            </div>
+            <div class="form-group">
+                <label for="password">Jelszó</label>
+                <input [disabled]="userSubmitted" type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password" placeholder="Jelszó">
+            </div>
+            <div class="form-group">
+                <label for="fullName">Teljes név</label>
+                <input [disabled]="userSubmitted" type="text" class="form-control" id="fullName" required [(ngModel)]="user.fullName" name="fullName" placeholder="Teljes név">
+            </div>
+            <button [disabled]="userSubmitted" type="submit" class="btn btn-success">Beküldés</button>
+        </form>
+        <form *ngIf="userSubmitted" (ngSubmit)="onStudentSubmit()" #form="ngForm" class="form">    
+            <div class="form-group">
+                <label for="dateOfBirth">Születési dátum</label>
+                <input type="date" class="form-control" id="dateOfBirth" required [(ngModel)]="student.dateOfBirth" name="dateOfBirth">
+            </div>
+            <div class="form-group">
+                <label for="start_year">Kezdés éve</label>
+                <input type="number" class="form-control" id="start_year" required [(ngModel)]="student.start_year" name="start_year" placeholder="2017">
+            </div>
+            <div class="form-group">
+                <label for="address">Cím</label>
+                <input type="text" class="form-control" id="address" required [(ngModel)]="student.address" name="address" placeholder="4444, Kecskecen Vetheln utca 13.">
+            </div>
+            <div class="form-group">
+                <label for="gender">Neme</label>
+               <select name="gender" class="form-control form-control-sm" [(ngModel)]="selectedOptionGender">
+                    <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
+               </select>
+            </div>
+            <div class="form-group">
+                <label for="educationId">Oktatási azonosító</label>
+                <input type="text" class="form-control" id="educationId" required [(ngModel)]="student.educationId" name="educationId" placeholder="1234567">
+            </div>
+            <div class="form-group">
+                <label for="healthCareId">TAJ szám</label>
+                <input type="text" class="form-control" id="healthCareId" required [(ngModel)]="student.healthCareId" name="healthCareId" placeholder="333/222/111">
+            </div>
+            <div class="form-group">
+                <label for="parent1Name">Anyja neve</label>
+                <input type="text" class="form-control" id="parent1Name" [(ngModel)]="student.parent1Name" name="parent1Name" placeholder="Firstname Middlename Lastname">
+            </div>
+            <div class="form-group">
+                <label for="parent2Name">Apja neve</label>
+                <input type="text" class="form-control" id="parent2Name" [(ngModel)]="student.parent2Name" name="parent2Name" placeholder="Firstname Middlename Lastname">
+            </div>
+            <div class="form-group">
+                <label for="parent1Phone">Szülő telefonszám 1</label>
+                <input type="text" class="form-control" id="parent1Phone" [(ngModel)]="student.parent1Phone" name="parent1Phone" placeholder="parent 1 Phone">
+            </div>
+            <div class="form-group">
+                <label for="parent2Phone">Szülő telefonszám 2</label>
+                <input type="text" class="form-control" id="parent2Phone" [(ngModel)]="student.parent2Phone" name="parent2Phone" placeholder="parent 2 Phone">
+            </div>
+            <div class="form-group">
+                <label for="classroom">Tanterem</label>
+               <select name="classroom" class="form-control form-control-sm" [(ngModel)]="selectedOption">
+                    <option *ngFor="let classroom of classrooms" [ngValue]="classroom">{{classroom.year}}/{{classroom.letter}}</option>
+               </select>
+            </div>
+            <button type="submit" (click)="goBack()" class="btn btn-dark">Vissza</button>
+                <button type="submit" class="btn btn-success">Beküldés</button>
+        </form>
+        </div>
+
+</div>

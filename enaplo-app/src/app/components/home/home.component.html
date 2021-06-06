@@ -1,0 +1,21 @@
+<app-panel-loader></app-panel-loader>
+<div class="container">
+    <div id="header_message" class="container">
+        <h3>Információ</h3>
+        <div *ngIf="isDataAvailable">
+            <button *ngIf="userRole() === 'ROLE_ADMIN'"  (click)="create()" class="btn btn-dark">Üzenet írása</button> 
+        </div>
+    </div>
+    <div class="container">
+        <div *ngFor="let message of messages" class="message">
+            <p>{{message.text}}</p>
+           <div class="footer">
+                <strong class="time">{{message.createdAt | date:'medium'}}</strong>
+                <div *ngIf="isDataAvailable" class="container">
+                    <button *ngIf="userRole() === 'ROLE_ADMIN'" (click)="update(message.id)" class="btn btn-warning">Frissítés</button> 
+                    <button *ngIf="userRole() === 'ROLE_ADMIN'" (click)="delete(message.id)" class="btn btn-danger">Törlés</button> 
+                </div>          
+            </div>
+        </div>
+    </div>
+</div>

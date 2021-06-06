@@ -1,0 +1,19 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <h3>Információ</h3>
+            <button *ngIf="this.currentUser.authorities[0].authority + '' != 'ROLE_STUDENT'"  (click)="create()" class="btn btn-dark">Üzenet</button> 
+        </div>
+        <div class="container">
+            <div *ngFor="let remark of remarks" class="remark">
+                <p>{{remark.text}}</p>
+               <div class="footer">
+                    <strong class="time">{{remark.writtenAt}}</strong>
+                    <button *ngIf="currentUser.authorities[0].authority + '' != 'ROLE_STUDENT'" (click)="update(remark.id)" class="btn btn-warning">Frissítés</button> 
+                    <button *ngIf="currentUser.authorities[0].authority + '' != 'ROLE_STUDENT'" (click)="delete(remark.id)" class="btn btn-danger">Törlés</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

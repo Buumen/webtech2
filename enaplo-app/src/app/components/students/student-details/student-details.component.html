@@ -1,0 +1,68 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <h2>Tanuló</h2>
+        </div>
+        <div class="container">
+            <table class="table table-bordered" *ngIf="student">
+                <tbody>
+                    <tr>
+                        <td>Felhasználónév</td>
+                        <td>{{student.student.username}}</td>
+                    </tr>
+                    <tr>
+                        <td>Teljes név</td>
+                        <td>{{student.student.fullName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Születési dátum</td>
+                        <td>{{student.dateOfBirth}}</td>
+                    </tr>
+                    <tr>
+                        <td>Kezdés éve</td>
+                        <td>{{student.start_year}}</td>
+                    </tr>
+                    <tr>
+                        <td>Cím</td>
+                        <td>{{student.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Neme</td>
+                        <td>{{student.gender}}</td>
+                    </tr>
+                    <tr>
+                        <td>Oktatási azonosító</td>
+                        <td>{{student.educationId}}</td>
+                    </tr>
+                    <tr>
+                        <td>TAJ szám</td>
+                        <td>{{student.healthCareId}}</td>
+                    </tr>
+                    <tr>
+                        <td>Anyja neve</td>
+                        <td>{{student.parent1Name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Apja neve</td>
+                        <td>{{student.parent2Name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Szülő telefonszám 1</td>
+                        <td>{{student.parent1Phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Szülő telefonszám 2</td>
+                        <td>{{student.parent2Phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanterem</td>
+                        <td>{{student.classroom.year}}/{{student.classroom.letter}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>      
+    </div>
+</div>
+
+

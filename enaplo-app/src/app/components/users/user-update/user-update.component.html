@@ -1,0 +1,29 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">
+        <div class="container">
+            <h2>Beállítások módosítása</h2>
+        </div>
+        <div class="container">         
+            <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-user"> 
+                <div class="form-group">
+                    <label for="username">Felhasználónév</label>
+                    <input [disabled]="userSubmitted" type="text" class="form-control" id="username" required [(ngModel)]="response.username" name="username" placeholder="{{user.username}}" value="{{user.username}}">
+                </div>
+                <div class="form-group">
+                    <label for="new-password">Új jelszó</label>
+                    <input type="password" class="form-control" id="new-password" required [(ngModel)]="newPassword" name="password" placeholder="Jelszó">
+                </div>
+                <div class="form-group">
+                    <label for="re-password">Jelszó mégegyszer</label>
+                    <input type="password" class="form-control" id="re-password" required [(ngModel)]="reEnterPassword" name="password" placeholder="Jelszó mégegyszer">
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Teljes név</label>
+                    <input type="text" class="form-control" id="fullName" required [(ngModel)]="response.fullName" name="fullName" placeholder="Teljes név">
+                </div>
+                <button type="submit" (click)="goBack()" class="btn btn-dark">Vissza</button>
+                <button type="submit" class="btn btn-success">Módosít</button>
+            </form>
+        </div>
+</div>

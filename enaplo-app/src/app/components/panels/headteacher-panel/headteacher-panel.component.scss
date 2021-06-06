@@ -1,0 +1,41 @@
+$headteacher-color: #85abdd;
+$secondary: #fff;
+$padding: 5em;
+$tr: all 0.3s ease;
+
+.headteacher-panel {
+    width: 100%;
+}
+
+.headteacher-panel-container {
+    background-color: $headteacher-color;
+    color: #131daa;
+    border-bottom: 5px solid $headteacher-color;
+}
+
+.title {
+    font-weight: bold;
+    padding-left: $padding;
+    font-size: 1.2em;
+    
+}
+
+.right {
+    float: right;
+}
+
+ 
+.headteacher-button {
+    padding-right: $padding;
+    background-color: $headteacher-color;
+    color: $secondary;
+    cursor: pointer;
+    transition: $tr;
+    font-size: 1.05em;
+    border: 5px;
+
+    &:hover {
+        background-color: $secondary;
+        color: $headteacher-color;
+    }
+}

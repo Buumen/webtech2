@@ -1,0 +1,26 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div *ngIf="userRole()" class="container">
+        <div class="container">
+            <h2>Adminisztráció</h2>
+        </div>
+        <div class="container">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>Archiválás</td>
+                        <td>
+                            <button (click)="create()" class="btn btn-dark">Archivál</button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Új év</td>
+                        <td>
+                            <button (click)="newYear()" class="btn btn-warning">Frissítés</button> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</div>

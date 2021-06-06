@@ -1,0 +1,38 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()"> 
+        <div class="container">        
+            <div class="user-list-header">
+                <h3>Tanuló lista</h3>
+            </div>
+            <div class="container">
+                <input class="form-control-searchbox" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" 
+                placeholder="&#171; Keresés">
+                <table  class="table table-striped table-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Felhasználónév</th>
+                            <th>Teljes név</th>
+                            <th>Funkció</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of students | filter:searchText">
+                            <td>{{student.student.username}}</td>
+                            <td>{{student.student.fullName}}</td>
+                            <td>                 
+                                <button (click)="details(student.student.id)" class="btn btn-info">Részletek</button>          
+                                <button (click)="summary(student.student.id)" class="btn btn-dark">Összegzés</button>
+                                <button (click)="reports(student.id)" class="btn btn-dark">Jelentés</button>
+                                <button (click)="attendances(student.id)" class="btn btn-dark">Részvétel</button>
+                                <button *ngIf="currentUser.authorities[0].authority + '' != 'ROLE_ADMIN'" (click)="exam(student.id)" class="btn btn-secondary">Vizsga</button>
+                                <button *ngIf="currentUser.authorities[0].authority + '' != 'ROLE_ADMIN'" (click)="report(student.id)" class="btn btn-secondary">Jelentés létrehozása</button>
+                                <button (click)="remark(student.id)" class="btn btn-info">Megjegyzés</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

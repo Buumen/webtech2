@@ -1,0 +1,38 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()">  
+        <div class="container">
+            <h2>Létrehozás</h2>
+        </div>
+        <div class="container">
+            <form (ngSubmit)="onUserSubmit()" #form="ngForm" class="form">
+                <div class="form-group">
+                    <label for="username">Felhasználónév</label>
+                    <input [disabled]="userSubmitted" type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username" placeholder="Felhasználónév">
+                </div>
+                <div class="form-group">
+                    <label for="password">Jelszó</label>
+                    <input [disabled]="userSubmitted" type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password" placeholder="Jelszó">
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Teljes név</label>
+                    <input [disabled]="userSubmitted" type="text" class="form-control" id="fullName" required [(ngModel)]="user.fullName" name="fullName" placeholder="Teljes név">
+                </div>
+                <button [disabled]="userSubmitted" type="submit" class="btn btn-success">Beküldés</button>
+            </form>
+            <form *ngIf="userSubmitted" (ngSubmit)="onTeacherSubmit()" #form="ngForm" class="form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" required [(ngModel)]="teacher.email" name="email" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefonszám</label>
+                    <input type="text" class="form-control" id="phone" required [(ngModel)]="teacher.phone" name="phone" placeholder="+36 10 999 9999">
+                </div>
+                <button type="submit" (click)="goBack()" class="btn btn-dark">Vissza</button>
+                <button type="submit" class="btn btn-success">Beküldés</button>
+            </form>
+        </div>
+    </div>
+</div>
+    

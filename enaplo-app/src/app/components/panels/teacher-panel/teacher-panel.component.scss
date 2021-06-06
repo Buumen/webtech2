@@ -1,0 +1,41 @@
+$teacher-color:	#794a05;
+$secondary: #fff;
+$padding: 5em;
+$tr: all 0.3s ease;
+
+.teacher-panel {
+    width: 100%;
+}
+
+.teacher-panel-container {
+    background-color: $teacher-color;
+    color: #f3b961;
+    border-bottom: 5px solid $teacher-color;
+}
+
+.title {
+    font-weight: bold;
+    padding-left: $padding;
+    font-size: 1.3em;
+    
+}
+
+.right {
+    float: right;
+}
+
+ 
+.teacher-button {
+    padding-right: $padding;
+    background-color: $teacher-color;
+    color: $secondary;
+    cursor: pointer;
+    transition: $tr;
+    font-size: 1.2em;
+    border: 5px;
+
+    &:hover {
+        background-color: $secondary;
+        color: $teacher-color;
+    }
+}

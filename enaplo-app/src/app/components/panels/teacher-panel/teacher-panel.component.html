@@ -1,0 +1,12 @@
+<mat-toolbar class="teacher-panel">
+    <div *ngIf="isDataAvailable" class="teacher-panel-container">
+        <span class="title">Tanár</span>
+            <div class="right">
+                <button mat-button mat-ripple (click)='timetable()' class="teacher-button">Órarend</button>
+                <button mat-button mat-ripple (click)='classrooms()' class="teacher-button">Osztályok</button>
+                <button mat-button mat-ripple (click)='preferences()' class="teacher-button">Preferenciák</button>
+                <button mat-button mat-ripple (click)='courses()' class="teacher-button">Tantárgyak</button>
+                <button  mat-button mat-ripple (click)='update()' class="teacher-button">Módosítás</button>
+            </div>
+        </div>
+</mat-toolbar>

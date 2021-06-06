@@ -1,0 +1,26 @@
+<div *ngIf="isDataAvailable">
+    <app-panel-loader></app-panel-loader>
+    <div class="container" *ngIf="userRole()"> 
+        <h2>Létrehozás</h2>
+        <div class="container">
+            <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-course">
+                <div class="form-group">
+                    <label for="title">Cím</label>
+                    <input type="text" class="form-control" id="title" required [(ngModel)]="course.title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="year">Év</label>
+                    <input type="number" class="form-control" id="year" required [(ngModel)]="course.year" name="year">
+                </div>
+                <div class="form-group">
+                    <label for="teacher">Tanár</label>
+                   <select name="teacher" class="form-control form-control-sm" [(ngModel)]="selectedOption">
+                        <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{teacher.teacher.fullName}}</option>
+                   </select>
+                </div>
+                <button type="submit" (click)="goBack()" class="btn btn-dark">Vissza</button>
+                <button type="submit" class="btn btn-success">Beküldés</button>
+            </form>
+        </div>
+    </div>
+</div>

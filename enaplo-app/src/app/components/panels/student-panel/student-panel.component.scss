@@ -1,0 +1,41 @@
+$student-color: #005cb9;
+$secondary: #98be91;
+$padding: 5em;
+$tr: all 0.3s ease;
+
+.student-panel {
+    width: 100%;
+}
+
+.student-panel-container {
+    background-color: $student-color;
+    color: #83e96a;
+    border-bottom: 5px solid $student-color;
+}
+
+.title {
+    font-weight: bold;
+    padding-left: $padding;
+    font-size: 1.3em;
+    
+}
+
+.right {
+    float: none;
+}
+
+ 
+.student-button {
+    padding-right: $padding;
+    background-color: $student-color;
+    color: $secondary;
+    cursor: pointer;
+    transition: $tr;
+    font-size: 1.04em;
+    border: 5px;
+
+    &:hover {
+        background-color: $secondary;
+        color: $student-color;
+    }
+}

@@ -1,0 +1,14 @@
+<mat-toolbar class="admin-panel">
+    <div *ngIf="isDataAvailable" class="admin-panel-container">
+        <span class="title">Rendszergazda</span>
+            <div class="right" >
+                <button  mat-button mat-ripple (click)='getAllUser()' class="admin-button">Felhasználók</button>
+                <button  mat-button mat-ripple (click)='getAllRooms()' class="admin-button">Osztálytermek</button>
+                <button  mat-button mat-ripple (click)='admin()' class="admin-button">Adminisztráció</button>
+                <button  mat-button mat-ripple (click)='archives()' class="admin-button">Arhívum</button>
+                <button  mat-button mat-ripple (click)='getAllClassroom()' class="admin-button">Osztályok</button>
+                <button  mat-button mat-ripple (click)='getAllCourse()' class="admin-button">Tantárgyak</button>
+                <button  mat-button mat-ripple (click)='update()' class="admin-button">Módosítás</button>
+            </div>
+        </div>
+</mat-toolbar>

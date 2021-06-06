@@ -1,0 +1,15 @@
+<mat-toolbar class="student-panel">
+    <div *ngIf="isDataAvailable" class="student-panel-container">
+        <span class="title">Tanuló</span>
+            <div class="right" >
+                <button  mat-button mat-ripple (click)='summary()' class="student-button">Összegzés</button>
+                <button  mat-button mat-ripple (click)='timetable()' class="student-button">Órarend</button>
+                <button  mat-button mat-ripple (click)='reports()' class="student-button">Jelentés</button>
+                <button  mat-button mat-ripple (click)='remarks()' class="student-button">Megjegyzés</button>
+                <button  mat-button mat-ripple (click)='course()' class="student-button">Tantárgyak</button>
+                <button  mat-button mat-ripple (click)='update()' class="student-button">Frissítés</button>
+                <button mat-button mat-ripple (click)='attendances()' class="student-button">Hiányzás</button>
+                <button  mat-button mat-ripple (click)='details()' class="student-button">Részlet</button>
+            </div>
+        </div>
+</mat-toolbar>
